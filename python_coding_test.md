@@ -1,4 +1,4 @@
-
+reading data
 ```python
 n = int(input())
 n, m, k = map(int, input().split())
