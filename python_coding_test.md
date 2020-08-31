@@ -47,7 +47,7 @@ range(start, stop[, step])
 for i in range(n, -1, -1):
     print(i)
 ... 
-10
+n
 9
 8
 7
