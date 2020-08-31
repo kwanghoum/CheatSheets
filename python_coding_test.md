@@ -42,3 +42,21 @@ def count_by_range(list, left_value, right_value):
     left_index = bisect_left(list, left_value) #정렬된 순서를 유지하면서 리스트 list에 데이터 left_value를 삽입할 가장 왼쪽 인덱스를 찾는 메소드
     return right_index - left_index
 ```
+range(start, stop[, step])
+```python
+for i in range(n, -1, -1):
+    print(i)
+... 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+
+```
