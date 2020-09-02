@@ -32,6 +32,34 @@ numbers = list(range(1, 11))
 map_&_filter = list(map(lambda n: n**2, filter(lambda n: n % 2, numbers)))
 list_comprehension = [n**2 for n in numbers if n % 2]
 ```
+sort
+```python
+data = [('Kim', 33), ('Lee', 26), ('Um', 29)]
+def age(t):
+    return t[1]
+data.sort(key = age) #나이 어린 순으로 정렬
+data.sort(key = lambda t : t[1], reverse = True) #나이 많은 순으로 정렬
+data.sort(key = lambda t : t[0]) #이름의 알파벳순으로 정렬 (알파벳은 순서가 뒤로 갈수록 값이 큼)
+#sorted() 함수는 원본을 유지. 튜플은 sort()함수 못쓰고, sorted()함수 쓰면 결과는 리스트.
+org = (3, 1, 2)
+cpy = tuple(sorted(org))
+```
+enumerate (enumerate함수는 리스트와 같은 'iterable객체'를 argument로 받아서 iterable객체를 새로 생성하여 짝지어 반환함)
+```python
+for i, name in enumerate(['body', 'foo', 'bar'], 10): # 번호를 10부터 매김
+    print(i, name)
+...
+10 body
+11 foo
+12 bar
+
+#이름들 있는 리스트를 이름 알파벳 순으로 정렬하고, 1부터 번호매기는 딕셔너리 만들기
+names = ['Um', 'Lee', 'Kim']
+dnames = {k : v for k, v in enumerate(sorted(names), 1}
+...
+{1: 'Kim', 2: 'Lee', 3: 'Um'}
+```
+
 
 binary search
 ```python
