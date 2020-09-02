@@ -60,12 +60,17 @@ n
 0
 
 ```
-disjoint set
+disjoint set(서로소 집합) & Kruskal's algorithm(크루스칼 알고리즘)
 ```python
+#두 노드가 있을 때 각 노드의 루트 노드가 동일하다면 같은 집합(그래프/트리)에 포함된 것.
+#방향성이 없는 경우라도 일반적으로 번호가 작은 노드가 큰 노드의 루트 노드가 되도록 방향을 잡음.
+
+#한 노드의 루트 노드를 찾는 함수
 def find_parent(parent, x):
     if parent[x] !=x:
         parent[x] = find_parent(parent, parent[x])
        return parent[x]
+#각 노드가 속한 그래프(각각 서로소 집합 관계)를 한 그래프로 합치는 함수
 def union_parent(parent, a, b):
     a = find_parent(parent, a)
     b = find_parent(parent, b)
@@ -73,8 +78,26 @@ def union_parent(parent, a, b):
         parent[b] = a
     else:
         parent[a] = b
-parent = [0] * (v + 1) # v: 노드의 개수
+parent = [0] * (n + 1)   # n: 노드의 개수 / parent는 각 노드들의 루트(부모) 노드를 담는 리스트 이다.
 
-for i in range(1, v + 1):
+for i in range(1, n + 1):  # 루트 노드 테이블상에서, 루트 노드들을 자기 자신으로 초기화
     parent[i] = i
+    
+#크루스칼 알고리즘이란 여러 노드들이 주어져있을 때 최소의 비용으로 모든 노드를 연결하는 방법을 찾는 알고리즘.
+#모든 노드가 연결된 그래프 = 신장 트리
+#다른 말로, 크루스칼 알고리즘이란 최소의 비용으로 신장트리를 만드는 알고리즘.
+#여기서 비용이란 일반적으로 간선의 크기를 의미.
+
+edges = []
+for _ range(m):  # m : 간선의 개수
+    a, b, cost = map(int, input().split()) # 노드, 노드, 간선크기
+    edges.append((cost, a, b))
+edges.sort()
+
+for edge in edges:
+    cost, a, b = edge
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent, a, b)
+#위와 같이 [(간선크기, 노드, 노드), ~ ,(간선크기, 노드, 노드)]로 구성된 간선의 정보를 간선크기로 정렬해서
+#차례대로 노드를 연결하는 방식으로 신장트리를 만듬(=크루스칼 알고리즘)
 ```
