@@ -59,7 +59,9 @@ dnames = {k : v for k, v in enumerate(sorted(names), 1}
 ...
 {1: 'Kim', 2: 'Lee', 3: 'Um'}
 ```
-
+표현식기반문자열조합 & 메소드 기반 문자열 조합
+```python
+```
 
 binary search
 ```python
