@@ -10,6 +10,18 @@ data = sys.stdin.readline().rstrip()
 
 ```
 
+```python
+x.isalpha() #알파벳인지 숫자인지 확인
+```
+리스트 -> 스트링
+```python
+"".join(list)
+```
+```python
+list.pop(0)
+list.append(something)
+```
+
 lambda expression (:function without a name)
 (use when theres no need to create a function with name
 ```python
