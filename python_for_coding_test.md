@@ -81,11 +81,13 @@ binary search
 from bisect import bisect_left, bisect_right
 
 def count_by_range(list, left_value, right_value):
-    right_index = bisect_right(list, right_value) #정렬된 순서를 유지하면서 리스트 list에 데이터 right_value를 삽입할 가장 오른쪽 인덱스를 찾는 메소드
-    left_index = bisect_left(list, left_value) #정렬된 순서를 유지하면서 리스트 list에 데이터 left_value를 삽입할 가장 왼쪽 인덱스를 찾는 메소드
+    right_index = bisect_right(list, right_value) # 정렬된 순서를 유지하면서 리스트 list에
+                                                    데이터 right_value를 삽입할 가장 오른쪽 인덱스를 찾는 메소드
+    left_index = bisect_left(list, left_value) # 정렬된 순서를 유지하면서 리스트 list에 
+                                                    데이터 left_value를 삽입할 가장 왼쪽 인덱스를 찾는 메소드
     return right_index - left_index
 ```
-
+파라메트릭 서치 문제 유형은 이진탐색을 재귀적말고 반복문을 용해 구현하면 더 간결하게 문제풀 수 있음. (둘 다 외워두자)
 ```python
 ''' Binary Search (Iterative Method) '''
 def binary_search(array, target, start, end):
