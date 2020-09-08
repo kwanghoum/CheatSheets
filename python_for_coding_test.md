@@ -85,6 +85,50 @@ def count_by_range(list, left_value, right_value):
     left_index = bisect_left(list, left_value) #정렬된 순서를 유지하면서 리스트 list에 데이터 left_value를 삽입할 가장 왼쪽 인덱스를 찾는 메소드
     return right_index - left_index
 ```
+
+```python
+''' Binary Search (Iterative Method) '''
+def binary_search(array, target, start, end):
+    while start <= end:
+        mid = (start + end) // 2
+        # If the target is found, return the mid index.
+        if array[mid] == target:
+            return mid
+        # If the value of the mid index is greater than the target, search the left part.
+        elif array[mid] > target:
+            end = mid - 1
+        # If the value of the mid index is smaller than the target, search the right part.
+        else:
+            start = mid + 1
+    return None
+    
+''' Binary Search (recursive method) '''
+def binary_search(array, target, start, end):
+    if start > end:
+        return None
+    mid = (start + end) // 2
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array, target, start, mid - 1)
+    else:
+        return binary_search(array, target, mid + 1, end)
+
+n = 10
+target = 13
+array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+result = binary_search(array, target, 0, n - 1)
+if result == None:
+    print(None)
+else:
+    print(result + 1)
+```
+
+
+
+
+
 range(start, stop[, step])
 ```python
 for i in range(n, -1, -1):
