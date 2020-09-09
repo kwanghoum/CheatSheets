@@ -216,7 +216,42 @@ bfs(start)
 1 2 3 4
 '''
 ```
-
+Dynamic Programming - LIS(Longest Increasing Subsequence)
+```python
+dp = [1] * n
+for i in range(1,n):
+    for j in range(0,i):
+        if array[j] < array[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
+```
+Dynamic Programming - 전형적이 dp(2차원)테이블 만들어서 풀기
+나동빈책(DP Q31 금광)
+```python
+for tc in range(int(input))
+    n, m = map(int, input().split())
+    array = list(map(int, input().split()))
+    dp = []
+    index = 0
+    for i in range(n):
+        dp.append(array[index : index + m])
+        index += m
+    for j in range(1,m):
+        for i in range(n):
+            if i == 0:
+                left_up = 0
+            else:
+                left_up = dp[i - 1][j - 1]
+            if i == n - 1:
+                left_down = 0
+            else:
+                left_down = dp[i + 1][j - 1]
+            left = dp[i][j - 1]
+            dp[i][j] = dp[i][j] + max(left_up, left_down, left)
+    result = 0
+    for i in range(n):
+        result = max(result, dp[i][m - 1])
+    print(result)
+```
 
 disjoint set(서로소 집합) & Kruskal's algorithm(크루스칼 알고리즘)
 ```python
