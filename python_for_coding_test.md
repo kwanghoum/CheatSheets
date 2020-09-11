@@ -281,7 +281,7 @@ for i in range(1, n + 1):  # 루트 노드 테이블상에서, 루트 노드들�
 #다른 말로, 크루스칼 알고리즘이란 최소의 비용으로 신장트리를 만드는 알고리즘.
 #여기서 비용이란 일반적으로 간선의 크기를 의미.
 
-edges = []
+edges = []   # 모든 간선을 담을 리스트
 for _ range(m):  # m : 간선의 개수
     a, b, cost = map(int, input().split()) # 노드, 노드, 간선크기
     edges.append((cost, a, b))
