@@ -286,11 +286,12 @@ for _ range(m):  # m : 간선의 개수
     a, b, cost = map(int, input().split()) # 노드, 노드, 간선크기
     edges.append((cost, a, b))
 edges.sort()
-
+result = 0
 for edge in edges:
     cost, a, b = edge
     if find_parent(parent, a) != find_parent(parent, b):
         union_parent(parent, a, b)
+        result += cost   # result는 신장트리만드는 최소의 비용
 #위와 같이 [(간선크기, 노드, 노드), ~ ,(간선크기, 노드, 노드)]로 구성된 간선의 정보를 간선크기로 정렬해서
 #차례대로 노드를 연결하는 방식으로 신장트리를 만듬(=크루스칼 알고리즘)
 ```
