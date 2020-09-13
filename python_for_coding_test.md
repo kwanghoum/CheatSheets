@@ -262,7 +262,7 @@ disjoint set(서로소 집합) & Kruskal's algorithm(크루스칼 알고리즘)
 def find_parent(parent, x):
     if parent[x] !=x:
         parent[x] = find_parent(parent, parent[x])
-       return parent[x]
+    return parent[x]
 #각 노드가 속한 그래프(각각 서로소 집합 관계)를 한 그래프로 합치는 함수
 def union_parent(parent, a, b):
     a = find_parent(parent, a)
