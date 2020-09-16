@@ -1,4 +1,12 @@
-VOICE FISHING
+타입힌트
+```python
+a: str = "1"
+b: int = 1
+
+def fn(a: int) -> bool:
+'''
+```
+
 reading data
 ```python
 n = int(input())
